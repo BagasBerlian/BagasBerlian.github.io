@@ -1,7 +1,3 @@
-body {
-  min-height: 2000px;
-}
-
 /* Navbar */
 .bg-nav {
   background-color: #498593;
@@ -9,16 +5,22 @@ body {
 
 /* Jumbotron */
 .jumbotron {
-  padding-top: 2rem;
+  padding-top: 6rem;
   background-color: #e2edff;
 }
 
 /* About Me */
-.taj {
-  text-align: justify !important;
-}
 
 /* Projects */
 #projects {
   background-color: #e2edff;
+}
+
+.card > img {
+  height: 250px;
+}
+
+/* All Section */
+section {
+  padding-top: 5rem;
 }
