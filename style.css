@@ -20,6 +20,11 @@
   height: 250px;
 }
 
+/* Footer */
+footer {
+  background-color: #498593;
+}
+
 /* All Section */
 section {
   padding-top: 5rem;
