@@ -237,17 +237,29 @@
             <div
                 class="row justify-content-center">
                 <div class="col-md-6">
-                    <form>
+                    <div class="alert alert-success alert-dismissible fade show d-none my-alert"
+                        role="alert">
+                        <strong>Terima
+                            kasih!</strong> pesan
+                        anda sudah kami terima.
+                        <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+                    </div>
+                    <form
+                        name="portofolio-contact-form">
                         <div class="mb-3">
                             <label for="name"
                                 class="form-label">Full
                                 Name
-
                             </label>
                             <input type="text"
                                 class="form-control"
                                 id="name"
-                                aria-describedby="name">
+                                aria-describedby="name"
+                                name="nama"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="email"
@@ -256,7 +268,9 @@
                             <input type="email"
                                 class="form-control"
                                 id="email"
-                                aria-describedby="email">
+                                aria-describedby="email"
+                                name="email"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="pesan"
@@ -264,10 +278,22 @@
                             <textarea
                                 class="form-control"
                                 id="pesan"
-                                rows="3"></textarea>
+                                rows="3"
+                                name="pesan"
+                                required></textarea>
                         </div>
                         <button type="submit"
-                            class="btn btn-primary">Send</button>
+                            class="btn btn-primary btn-kirim">Send</button>
+                        <button
+                            class="btn btn-primary btn-loading d-none"
+                            type="button"
+                            disabled>
+                            <span
+                                class="spinner-border spinner-border-sm"
+                                role="status"
+                                aria-hidden="true"></span>
+                            Loading...
+                        </button>
                     </form>
                 </div>
             </div>
@@ -300,6 +326,45 @@
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+
+    <!-- Script Spreadsheet Contact Person -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxI8Pa0aLdIea0tuEt2f38_94zySAifRfxG5AX3_dnNOUQ1th_N87BYHjnOvTueBknV/exec';
+        const form = document.forms['portofolio-contact-form'];
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            // Ketika tombol submit di klik
+
+            // tampilkan tombol loading, hilangkan tombol kirim
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+
+            // set d-none alert exist
+            myAlert.classList.add('d-none');
+
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    // ketika success tampilkan tombol kirim, hilangkan tombol loading
+                    btnLoading.classList.toggle('d-none');
+                    btnKirim.classList.toggle('d-none');
+
+                    // Munculkan alert
+                    myAlert.classList.remove('d-none');
+
+                    // Reset Form
+                    form.reset();
+
+                    console.log('Success!', response);
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 
 </html>
