@@ -18,6 +18,10 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- AOS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- My Style -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -71,10 +75,11 @@
         <img src="img/profil.png"
             alt="Bagas Berlian" width="200"
             class="rounded-circle img-thumbnail">
-        <h1 class="display-5 mt-3">Bagas Berlian
+        <h1 class="display-5 mt-3 my-name">Bagas
+            Berlian
             Tri
             Cahyono</h1>
-        <p class="lead">Student | Learner
+        <p class="lead role">
         </p>
         <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320">
@@ -96,7 +101,9 @@
             </div>
             <div
                 class="row justify-content-center fs-5 text-center">
-                <div class="col-md-4">
+                <div class="col-md-4"
+                    data-aos="fade-right"
+                    data-aos-duration="1000">
                     <p>
                         Lorem ipsum dolor sit
                         amet,
@@ -106,7 +113,10 @@
                         voluptates. Obcaecati sit
                         sapiente labore autem.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4"
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    data-aos-delay="200">
                     <p>Lorem ipsum dolor sit amet
                         consectetur adipisicing
                         elit. Officia cupiditate
@@ -139,7 +149,9 @@
             </div>
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <div class="card">
+                    <div class="card"
+                        data-aos="zoom-in-down"
+                        data-aos-duration="1000">
                         <img src="img/projects/emoney.png"
                             class="card-img-top"
                             alt="Project Emoney IOT">
@@ -158,13 +170,16 @@
                                 Labore
                                 necessitatibus
                                 harum hic!</p>
-                            <a href="#"
+                            <a target="_blank"
+                                href="https://www.linkedin.com/in/bagas-berlian-tri-cahyono-00a9782a9"
                                 class="btn btn-primary">Detail</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="card">
+                    <div class="card"
+                        data-aos="zoom-in-down"
+                        data-aos-delay="200">
                         <img src="img/projects/myhotels.png"
                             class="card-img-top"
                             alt="Project Emoney IOT">
@@ -184,13 +199,16 @@
                                 Labore
                                 necessitatibus
                                 harum hic!</p>
-                            <a href="#"
+                            <a target="_blank"
+                                href="https://www.linkedin.com/in/bagas-berlian-tri-cahyono-00a9782a9"
                                 class="btn btn-primary">Detail</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="card">
+                    <div class="card"
+                        data-aos="zoom-in-down"
+                        data-aos-delay="400">
                         <img src="img/projects/youi.png"
                             class="card-img-top"
                             alt="Project Emoney IOT">
@@ -210,7 +228,8 @@
                                 Labore
                                 necessitatibus
                                 harum hic!</p>
-                            <a href="#"
+                            <a target="_blank"
+                                href="https://www.linkedin.com/in/bagas-berlian-tri-cahyono-00a9782a9"
                                 class="btn btn-primary">Detail</a>
                         </div>
                     </div>
@@ -247,7 +266,9 @@
                             data-bs-dismiss="alert"
                             aria-label="Close"></button>
                     </div>
-                    <form
+                    <form data-aos="fade-up"
+                        data-aos-easing="linier"
+                        data-aos-duration="700"
                         name="portofolio-contact-form">
                         <div class="mb-3">
                             <label for="name"
@@ -326,6 +347,34 @@
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <!-- Script AOS -->
+    <script
+        src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000
+        });
+    </script>
+
+
+    <!-- Script GSAP -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        gsap.to('.role', {
+            duration: 2,
+            delay: 1.5,
+            text: 'Student | Learner'
+        })
+        gsap.from('.jumbotron img', { duration: 1.5, y: -100, opacity: 0, ease: 'bounce.out' });
+        gsap.from('.my-name', { duration: 1, x: -50, opacity: 0, delay: 0.5, ease: 'back' });
+    </script>
 
 
     <!-- Script Spreadsheet Contact Person -->
