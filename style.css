@@ -23,12 +23,39 @@ body {
   background-color: #e2edff;
 }
 
-.card {
-  height: 440px;
+.card-box {
+  transform-style: preserve-3d;
 }
 
 .card > img {
   height: 250px;
+  transition: 0.5s;
+}
+
+.card:hover > img {
+  transform: translate3d(0, 0, 40px);
+}
+
+.card-body {
+  transform-style: preserve-3d;
+}
+
+.card-body h5,
+.card-body p {
+  transition: 0.5s;
+}
+
+.card:hover .card-body h5,
+.card:hover .card-body p {
+  transform: translate3d(0, 0, 30px);
+}
+
+.card-body a {
+  transition: 0.5s;
+}
+
+.card:hover .card-body a {
+  transform: translate3d(0, 0, 50px);
 }
 
 /* Footer */
